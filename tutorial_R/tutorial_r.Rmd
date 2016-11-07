@@ -1,0 +1,35 @@
+---
+title: "Tutorial R"
+output: html_notebook
+---
+
+
+1. Introdução
+    + Instalação
+        + [R](https://www.r-project.org/)
+        + [RStudio](https://www.rstudio.com/products/rstudio/download/)
+
+2. A Linguagem R
+    + Open Source (R Foundation)
+    + Desenvolvida para Análise Estatística, Representação de Gráficos e Relatórios.
+    + Linguagem Interpretada
+    + Amplamente usada por Data Scientists no mundo inteiro
+  
+3. Comand Prompt
+    + Simples
+    + Dá pra testar o código sem precisar compilar (como Python)
+    + Vamos experimentar!
+4. Estruturas de Dados
+
+5. Funções e apply’s
+
+6. Transformações (dplyr)
+
+7. Visualização
+    + Padrão
+    + ggplot2
+    + RMarkdown
+
+
+
+

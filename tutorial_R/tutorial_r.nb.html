@@ -195,7 +195,75 @@ $(document).ready(function () {
 <li>Dá pra testar o código sem precisar compilar (como Python)</li>
 <li>Vamos experimentar!</li>
 </ul></li>
-<li><p>Estruturas de Dados</p></li>
+<li>Estruturas de Dados
+<ul>
+<li>Vetor: A base de R (tudo é vetor)
+<ul>
+<li>Só pode conter elementos de um mesmo tipo</li>
+<li>Tipos de Dados Básicos: Numeric, Integer, Complex, Logical, Character</li>
+</ul></li>
+<li>Listas, Matrizes, Arrays, Fatores e Data Frames</li>
+</ul></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBUUlVFXG5jbGFzcyh2KVxudiA8LSA1MC45XG5jbGFzcyh2KVxudiA8LSBcIkFtbyBtdWl0byB0dWRvIGlzc28hXCJcbmNsYXNzKHYpXG5cbiNWZXRvcmVzIGNvbSBtw7psdGlwbG9zIGVsZW1lbnRvc1xuZnJ1dGFzIDwtIGMoXCJiYW5hbmFcIiwgXCJjYWp1XCIsIFwibGFyYW5qYVwiKVxucHJpbnQoZnJ1dGFzKVxuYGBgIn0= -->
+<pre class="r"><code>v &lt;- TRUE
+class(v)
+v &lt;- 50.9
+class(v)
+v &lt;- &quot;Amo muito tudo isso!&quot;
+class(v)
+
+#Vetores com múltiplos elementos
+frutas &lt;- c(&quot;banana&quot;, &quot;caju&quot;, &quot;laranja&quot;)
+print(frutas)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xpc3RhcyBwb2RlbSB0ZXIgZWxlbWVudG9zIGRlIHRpcG9zIGRpZmVyZW50ZXNcbmwgPC0gbGlzdChcImFiY1wiLDEsVFJVRSxjKDQuNSw2LjkpKVxucHJpbnQobClcblxuXG4jTWF0cml6ZXMgc8OjbyBjb25qdW50b3MgZGUgZGFkb3MgZGUgMiBkaW1lbnPDtWVzXG5tIDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2KSwgbnJvdz0yLCBuY29sPTMsYnlyb3cgPSBUUlVFKVxucHJpbnQobSlcblxuI0FycmF5cyBwb2RlbSB0ZXIgcXVhbHF1ZXIgbsO6bWVybyBkZSBkaW1lbnPDtWVzXG5hIDwtIGFycmF5KGMoXCJDb2NhLUNvbGFcIixcIlBlcHNpXCIpLGRpbT1jKDMsMywyKSlcbnByaW50KGEpXG5cbiNGYWN0b3JzIHPDo28gdmV0b3JlcyBub21lYWRvcy9yb3R1bGFkb3MgKGZhY2lsaXRhbSBvcGVyYcOnw7VlcykgLSBzdHJpbmdzIHPDo28gbGlkYXMgY29tbyBmYWN0b3JzIHBvciBwYWRyw6NvXG5jb3Jlcy5wcmltYXJpYXMgPC0gZmFjdG9yKGMoXCJ2ZXJtZWxob1wiLFwiYXp1bFwiLFwidmVyZGVcIikpXG5wcmludChjb3Jlcy5wcmltYXJpYXMpXG5wcmludChubGV2ZWxzKGNvcmVzLnByaW1hcmlhcykpXG5cbiNEYXRhIEZyYW1lcyBzw6NvIG9iamV0b3MgZGUgZGFkb3MgdGFidWxhcmVzIC0gZWxlbWVudG9zIGRlIHVtYSBjb2x1bmEgZGV2ZW0gc2VyIGRvIG1lc21vIHRpcG9cbm1vbml0b3Jlcy5hZDIgPC0gZGF0YS5mcmFtZShcbiAgbm9tZSA9IGMoXCJUYXJjaXNvXCIsIFwiRGllZ29cIiwgXCLDk3Jpb25cIiksXG4gIGFsdHVyYSA9IGMoMS43MiwxLjgyLDEuOTIpLFxuICBpZGFkZSA9IGMoMjQsMjYsMjIpXG4pXG5wcmludChtb25pdG9yZXMuYWQyKVxuXG4jQXRyaWJ1acOnw6NvIGRlIFZhcmnDoXZlaXNcbnZhci4xID0gXCJhYmNcIlxudmFyLjIgPC0gXCJhYmNcIlxuXCJhYmNcIiAtPiB2YXIuM1xudmFyLjQgPDwtIFwiYWJjXCIgI2dsb2JhbCBhc3NpZ25tZW50XG5cbnByaW50KHZhci4xKVxucHJpbnQodmFyLjIpXG5wcmludCh2YXIuMylcblxuYGBgIn0= -->
+<pre class="r"><code>#Listas podem ter elementos de tipos diferentes
+l &lt;- list(&quot;abc&quot;,1,TRUE,c(4.5,6.9))
+print(l)
+
+
+#Matrizes são conjuntos de dados de 2 dimensões
+m &lt;- matrix(c(1,2,3,4,5,6), nrow=2, ncol=3,byrow = TRUE)
+print(m)
+
+#Arrays podem ter qualquer número de dimensões
+a &lt;- array(c(&quot;Coca-Cola&quot;,&quot;Pepsi&quot;),dim=c(3,3,2))
+print(a)
+
+#Factors são vetores nomeados/rotulados (facilitam operações) - strings são lidas como factors por padrão
+cores.primarias &lt;- factor(c(&quot;vermelho&quot;,&quot;azul&quot;,&quot;verde&quot;))
+print(cores.primarias)
+print(nlevels(cores.primarias))
+
+#Data Frames são objetos de dados tabulares - elementos de uma coluna devem ser do mesmo tipo
+monitores.ad2 &lt;- data.frame(
+  nome = c(&quot;Tarciso&quot;, &quot;Diego&quot;, &quot;Órion&quot;),
+  altura = c(1.72,1.82,1.92),
+  idade = c(24,26,22)
+)
+print(monitores.ad2)
+
+#Atribuição de Variáveis
+var.1 = &quot;abc&quot;
+var.2 &lt;- &quot;abc&quot;
+&quot;abc&quot; -&gt; var.3
+var.4 &lt;&lt;- &quot;abc&quot; #global assignment
+
+print(var.1)
+print(var.2)
+print(var.3)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="5" style="list-style-type: decimal">
 <li><p>Funções e apply’s</p></li>
 <li><p>Transformações (dplyr)</p></li>
 <li>Visualização
@@ -204,10 +272,32 @@ $(document).ready(function () {
 <li>ggplot2</li>
 <li>RMarkdown</li>
 </ul></li>
+<li>Links
+<ul>
+<li>Cheat Sheets
+<ul>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf">Base R</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RMarkdown</a></li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">Outros</a></li>
+</ul></li>
+<li>Tutoriais
+<ul>
+<li><a href="www.tutorialspoint.com/r/" class="uri">www.tutorialspoint.com/r/</a></li>
+<li><a href="tryr.codeschool.com/" class="uri">tryr.codeschool.com/</a></li>
+<li><a href="https://www.datacamp.com/" class="uri">https://www.datacamp.com/</a></li>
+</ul></li>
+<li>Cursos Online
+<ul>
+<li><a href="https://www.coursera.org/learn/r-programming">R Programming - Coursera</a></li>
+<li><a href="http://www.skilledup.com/articles/5-free-courses-learning-r-programming">Outras alternativas online</a></li>
+</ul></li>
+</ul></li>
 </ol>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlR1dG9yaWFsIFIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCjEuIEludHJvZHXDp8Ojbw0KICAgICsgSW5zdGFsYcOnw6NvDQogICAgICAgICsgW1JdKGh0dHBzOi8vd3d3LnItcHJvamVjdC5vcmcvKQ0KICAgICAgICArIFtSU3R1ZGlvXShodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9wcm9kdWN0cy9yc3R1ZGlvL2Rvd25sb2FkLykNCg0KMi4gQSBMaW5ndWFnZW0gUg0KICAgICsgT3BlbiBTb3VyY2UgKFIgRm91bmRhdGlvbikNCiAgICArIERlc2Vudm9sdmlkYSBwYXJhIEFuw6FsaXNlIEVzdGF0w61zdGljYSwgUmVwcmVzZW50YcOnw6NvIGRlIEdyw6FmaWNvcyBlIFJlbGF0w7NyaW9zLg0KICAgICsgTGluZ3VhZ2VtIEludGVycHJldGFkYQ0KICAgICsgQW1wbGFtZW50ZSB1c2FkYSBwb3IgRGF0YSBTY2llbnRpc3RzIG5vIG11bmRvIGludGVpcm8NCiAgDQozLiBDb21hbmQgUHJvbXB0DQogICAgKyBTaW1wbGVzDQogICAgKyBEw6EgcHJhIHRlc3RhciBvIGPDs2RpZ28gc2VtIHByZWNpc2FyIGNvbXBpbGFyIChjb21vIFB5dGhvbikNCiAgICArIFZhbW9zIGV4cGVyaW1lbnRhciENCjQuIEVzdHJ1dHVyYXMgZGUgRGFkb3MNCg0KNS4gRnVuw6fDtWVzIGUgYXBwbHnigJlzDQoNCjYuIFRyYW5zZm9ybWHDp8O1ZXMgKGRwbHlyKQ0KDQo3LiBWaXN1YWxpemHDp8Ojbw0KICAgICsgUGFkcsOjbw0KICAgICsgZ2dwbG90Mg0KICAgICsgUk1hcmtkb3duDQoNCg0KDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlR1dG9yaWFsIFIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCjEuIEludHJvZHXDp8Ojbw0KICAgICsgSW5zdGFsYcOnw6NvDQogICAgICAgICsgW1JdKGh0dHBzOi8vd3d3LnItcHJvamVjdC5vcmcvKQ0KICAgICAgICArIFtSU3R1ZGlvXShodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9wcm9kdWN0cy9yc3R1ZGlvL2Rvd25sb2FkLykNCg0KMi4gQSBMaW5ndWFnZW0gUg0KICAgICsgT3BlbiBTb3VyY2UgKFIgRm91bmRhdGlvbikNCiAgICArIERlc2Vudm9sdmlkYSBwYXJhIEFuw6FsaXNlIEVzdGF0w61zdGljYSwgUmVwcmVzZW50YcOnw6NvIGRlIEdyw6FmaWNvcyBlIFJlbGF0w7NyaW9zLg0KICAgICsgTGluZ3VhZ2VtIEludGVycHJldGFkYQ0KICAgICsgQW1wbGFtZW50ZSB1c2FkYSBwb3IgRGF0YSBTY2llbnRpc3RzIG5vIG11bmRvIGludGVpcm8NCiAgDQozLiBDb21hbmQgUHJvbXB0DQogICAgKyBTaW1wbGVzDQogICAgKyBEw6EgcHJhIHRlc3RhciBvIGPDs2RpZ28gc2VtIHByZWNpc2FyIGNvbXBpbGFyIChjb21vIFB5dGhvbikNCiAgICArIFZhbW9zIGV4cGVyaW1lbnRhciENCg0KNC4gRXN0cnV0dXJhcyBkZSBEYWRvcw0KICAgICsgVmV0b3I6IEEgYmFzZSBkZSBSICh0dWRvIMOpIHZldG9yKQ0KICAgICAgICArIFPDsyBwb2RlIGNvbnRlciBlbGVtZW50b3MgZGUgdW0gbWVzbW8gdGlwbw0KICAgICAgICArIFRpcG9zIGRlIERhZG9zIELDoXNpY29zOiBOdW1lcmljLCBJbnRlZ2VyLCBDb21wbGV4LCBMb2dpY2FsLCBDaGFyYWN0ZXINCiAgICArIExpc3RhcywgTWF0cml6ZXMsIEFycmF5cywgRmF0b3JlcyBlIERhdGEgRnJhbWVzDQpgYGB7ciBkYXRhX3R5cGVzfQ0KdiA8LSBUUlVFDQpjbGFzcyh2KQ0KdiA8LSA1MC45DQpjbGFzcyh2KQ0KdiA8LSAiQW1vIG11aXRvIHR1ZG8gaXNzbyEiDQpjbGFzcyh2KQ0KDQojVmV0b3JlcyBjb20gbcO6bHRpcGxvcyBlbGVtZW50b3MNCmZydXRhcyA8LSBjKCJiYW5hbmEiLCAiY2FqdSIsICJsYXJhbmphIikNCnByaW50KGZydXRhcykNCmBgYA0KDQogIA0KICANCmBgYHtyIGRhdGF9DQojTGlzdGFzIHBvZGVtIHRlciBlbGVtZW50b3MgZGUgdGlwb3MgZGlmZXJlbnRlcw0KbCA8LSBsaXN0KCJhYmMiLDEsVFJVRSxjKDQuNSw2LjkpKQ0KcHJpbnQobCkNCg0KDQojTWF0cml6ZXMgc8OjbyBjb25qdW50b3MgZGUgZGFkb3MgZGUgMiBkaW1lbnPDtWVzDQptIDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2KSwgbnJvdz0yLCBuY29sPTMsYnlyb3cgPSBUUlVFKQ0KcHJpbnQobSkNCg0KI0FycmF5cyBwb2RlbSB0ZXIgcXVhbHF1ZXIgbsO6bWVybyBkZSBkaW1lbnPDtWVzDQphIDwtIGFycmF5KGMoIkNvY2EtQ29sYSIsIlBlcHNpIiksZGltPWMoMywzLDIpKQ0KcHJpbnQoYSkNCg0KI0ZhY3RvcnMgc8OjbyB2ZXRvcmVzIG5vbWVhZG9zL3JvdHVsYWRvcyAoZmFjaWxpdGFtIG9wZXJhw6fDtWVzKSAtIHN0cmluZ3Mgc8OjbyBsaWRhcyBjb21vIGZhY3RvcnMgcG9yIHBhZHLDo28NCmNvcmVzLnByaW1hcmlhcyA8LSBmYWN0b3IoYygidmVybWVsaG8iLCJhenVsIiwidmVyZGUiKSkNCnByaW50KGNvcmVzLnByaW1hcmlhcykNCnByaW50KG5sZXZlbHMoY29yZXMucHJpbWFyaWFzKSkNCg0KI0RhdGEgRnJhbWVzIHPDo28gb2JqZXRvcyBkZSBkYWRvcyB0YWJ1bGFyZXMgLSBlbGVtZW50b3MgZGUgdW1hIGNvbHVuYSBkZXZlbSBzZXIgZG8gbWVzbW8gdGlwbw0KbW9uaXRvcmVzLmFkMiA8LSBkYXRhLmZyYW1lKA0KICBub21lID0gYygiVGFyY2lzbyIsICJEaWVnbyIsICLDk3Jpb24iKSwNCiAgYWx0dXJhID0gYygxLjcyLDEuODIsMS45MiksDQogIGlkYWRlID0gYygyNCwyNiwyMikNCikNCnByaW50KG1vbml0b3Jlcy5hZDIpDQoNCiNBdHJpYnVpw6fDo28gZGUgVmFyacOhdmVpcw0KdmFyLjEgPSAiYWJjIg0KdmFyLjIgPC0gImFiYyINCiJhYmMiIC0+IHZhci4zDQp2YXIuNCA8PC0gImFiYyIgI2dsb2JhbCBhc3NpZ25tZW50DQoNCnByaW50KHZhci4xKQ0KcHJpbnQodmFyLjIpDQpwcmludCh2YXIuMykNCg0KYGBgDQoNCg0KNS4gRnVuw6fDtWVzIGUgYXBwbHnigJlzDQoNCjYuIFRyYW5zZm9ybWHDp8O1ZXMgKGRwbHlyKQ0KDQo3LiBWaXN1YWxpemHDp8Ojbw0KICAgICsgUGFkcsOjbw0KICAgICsgZ2dwbG90Mg0KICAgICsgUk1hcmtkb3duDQogICAgDQo4LiBMaW5rcw0KICAgICsgQ2hlYXQgU2hlZXRzDQogICAgICAgICsgW0Jhc2UgUl0oaHR0cHM6Ly93d3cucnN0dWRpby5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMTYvMTAvci1jaGVhdC1zaGVldC0zLnBkZikNCiAgICAgICAgKyBbZHBseXJdKGh0dHBzOi8vd3d3LnJzdHVkaW8uY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDE1LzAyL2RhdGEtd3JhbmdsaW5nLWNoZWF0c2hlZXQucGRmKQ0KICAgICAgICArIFtnZ3Bsb3QyXShodHRwczovL3d3dy5yc3R1ZGlvLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAxNS8wMy9nZ3Bsb3QyLWNoZWF0c2hlZXQucGRmKQ0KICAgICAgICArIFtSTWFya2Rvd25dKGh0dHBzOi8vd3d3LnJzdHVkaW8uY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDE1LzAyL3JtYXJrZG93bi1jaGVhdHNoZWV0LnBkZikNCiAgICAgICAgKyBbT3V0cm9zXShodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9yZXNvdXJjZXMvY2hlYXRzaGVldHMvKQ0KICAgICsgVHV0b3JpYWlzDQogICAgICAgICsgW3d3dy50dXRvcmlhbHNwb2ludC5jb20vci9dKHd3dy50dXRvcmlhbHNwb2ludC5jb20vci8pDQogICAgICAgICsgW3RyeXIuY29kZXNjaG9vbC5jb20vXSh0cnlyLmNvZGVzY2hvb2wuY29tLykNCiAgICAgICAgKyBbaHR0cHM6Ly93d3cuZGF0YWNhbXAuY29tL10oaHR0cHM6Ly93d3cuZGF0YWNhbXAuY29tLykNCiAgICArIEN1cnNvcyBPbmxpbmUNCiAgICAgICAgKyBbUiBQcm9ncmFtbWluZyAtIENvdXJzZXJhXShodHRwczovL3d3dy5jb3Vyc2VyYS5vcmcvbGVhcm4vci1wcm9ncmFtbWluZykNCiAgICAgICAgKyBbT3V0cmFzIGFsdGVybmF0aXZhcyBvbmxpbmVdKGh0dHA6Ly93d3cuc2tpbGxlZHVwLmNvbS9hcnRpY2xlcy81LWZyZWUtY291cnNlcy1sZWFybmluZy1yLXByb2dyYW1taW5nKQ0KICAgICAgDQoNCg0KDQoNCg==</div>
 
 
 

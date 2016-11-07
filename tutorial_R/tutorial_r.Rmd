@@ -19,7 +19,66 @@ output: html_notebook
     + Simples
     + Dá pra testar o código sem precisar compilar (como Python)
     + Vamos experimentar!
+
 4. Estruturas de Dados
+    + Vetor: A base de R (tudo é vetor)
+        + Só pode conter elementos de um mesmo tipo
+        + Tipos de Dados Básicos: Numeric, Integer, Complex, Logical, Character
+    + Listas, Matrizes, Arrays, Fatores e Data Frames
+```{r data_types}
+v <- TRUE
+class(v)
+v <- 50.9
+class(v)
+v <- "Amo muito tudo isso!"
+class(v)
+
+#Vetores com múltiplos elementos
+frutas <- c("banana", "caju", "laranja")
+print(frutas)
+```
+
+  
+  
+```{r data}
+#Listas podem ter elementos de tipos diferentes
+l <- list("abc",1,TRUE,c(4.5,6.9))
+print(l)
+
+
+#Matrizes são conjuntos de dados de 2 dimensões
+m <- matrix(c(1,2,3,4,5,6), nrow=2, ncol=3,byrow = TRUE)
+print(m)
+
+#Arrays podem ter qualquer número de dimensões
+a <- array(c("Coca-Cola","Pepsi"),dim=c(3,3,2))
+print(a)
+
+#Factors são vetores nomeados/rotulados (facilitam operações) - strings são lidas como factors por padrão
+cores.primarias <- factor(c("vermelho","azul","verde"))
+print(cores.primarias)
+print(nlevels(cores.primarias))
+
+#Data Frames são objetos de dados tabulares - elementos de uma coluna devem ser do mesmo tipo
+monitores.ad2 <- data.frame(
+  nome = c("Tarciso", "Diego", "Órion"),
+  altura = c(1.72,1.82,1.92),
+  idade = c(24,26,22)
+)
+print(monitores.ad2)
+
+#Atribuição de Variáveis
+var.1 = "abc"
+var.2 <- "abc"
+"abc" -> var.3
+var.4 <<- "abc" #global assignment
+
+print(var.1)
+print(var.2)
+print(var.3)
+
+```
+
 
 5. Funções e apply’s
 
@@ -29,6 +88,22 @@ output: html_notebook
     + Padrão
     + ggplot2
     + RMarkdown
+    
+8. Links
+    + Cheat Sheets
+        + [Base R](https://www.rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf)
+        + [dplyr](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+        + [ggplot2](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+        + [RMarkdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+        + [Outros](https://www.rstudio.com/resources/cheatsheets/)
+    + Tutoriais
+        + [www.tutorialspoint.com/r/](www.tutorialspoint.com/r/)
+        + [tryr.codeschool.com/](tryr.codeschool.com/)
+        + [https://www.datacamp.com/](https://www.datacamp.com/)
+    + Cursos Online
+        + [R Programming - Coursera](https://www.coursera.org/learn/r-programming)
+        + [Outras alternativas online](http://www.skilledup.com/articles/5-free-courses-learning-r-programming)
+      
 
 
 

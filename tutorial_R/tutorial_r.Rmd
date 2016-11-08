@@ -81,8 +81,101 @@ print(var.3)
 
 
 5. Funções e apply’s
+    + Funções: As declarações de funções em R se dispõe da seguinte maneira:
+
+```{r}
+# A estrutura básica para uma função chamada myfunction
+#myfunction <- function(arg1, arg2, ... ){
+#statements
+#return(object)
+#}
+
+# Por exemplo uma função que retorne a média entre 3 números
+
+my_mean <- function(value1, value2, value3){
+  values <- c(value1, value2, value3)
+  average <- mean(values)
+  return(average)
+}
+
+my_mean(3,4, 5)
+
+```
+
+    + Apply: Utilizado quando desejamos aplicar uma mesma função em vários valores de uma matriz.
+    
+```{r}
+# criando uma matriz qualquer, onde os valores girem em torno de 0, 2 e 5 respectivamente
+m <- matrix(data=cbind(rnorm(30, 0), rnorm(30, 2), rnorm(30, 5)), nrow=30, ncol=3)
+# Utilizando o apply para termos a média de cada linha
+apply(m, 1, mean)
+# Utilizando o apply para termos a média de cada coluna
+apply(m, 2, mean)
+
+# Note que o segundo parâmetro (onde colocamos 1 e 2) indica o que desejamos realizar.
+
+# Utilizando uma função prórpia pra saber quantos números são negativos em cada coluna:
+apply(m, 2, function(x) length(x[x<0]))
+
+```
 
 6. Transformações (dplyr)
+
+    + Possui um conjunto de ferramentas úteis para simplificar o seu trabalho com o R.
+    + Criar um filtro nos dados (filter)
+
+```{r}
+# Importando um dataset externo
+library(nycflights13)
+library(dplyr)
+
+# Verificando as primeiras linhas
+head(flights)
+
+# Selecionando apenas os voos no mês 1 e dia 1
+filter(flights, month == 1, day == 1)
+```
+
+    + Reordenar as colunas (arrange)
+```{r}
+arrange(flights, year, month, day)
+
+# Podemos ainda ordenar por ordem descendente ou ascendente de um parâmetro (desc e asc)
+arrange(flights, desc(arr_delay))
+
+
+
+```
+
+    + Escolher apenas algumas colunas (select)
+
+```{r}
+# Informando o nome das colunas
+select(flights, year, month, day)
+
+# Informando o intervalo das mesmas
+select(flights, year:day)
+
+# Excluindo colunas
+select(flights, -(year:day))
+
+```
+
+    + Renomear uma coluna (rename)
+    
+```{r}
+rename(flights, tail_num = tailnum)
+```
+
+    + Verificar valores distintos de uma coluna
+    
+```{r}
+# Para uma variável
+distinct(flights, tailnum)
+
+# Para uma combinação de variáveis
+distinct(flights, origin, dest)
+```
 
 7. Visualização
     + Padrão

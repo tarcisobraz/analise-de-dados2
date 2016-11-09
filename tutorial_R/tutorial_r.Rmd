@@ -66,6 +66,8 @@ monitores.ad2 <- data.frame(
   idade = c(24,26,22)
 )
 print(monitores.ad2)
+print(monitores.ad2$nome)
+print(monitores.ad2[1,1])
 
 #Atribuição de Variáveis
 var.1 = "abc"
@@ -81,7 +83,7 @@ print(var.3)
 
 
 5. Funções e apply’s
-    + Funções: As declarações de funções em R se dispõe da seguinte maneira:
+    + Funções: As declarações de funções em R se dispõem da seguinte maneira:
 
 ```{r}
 # A estrutura básica para uma função chamada myfunction
@@ -179,8 +181,82 @@ distinct(flights, origin, dest)
 
 7. Visualização
     + Padrão
-    + ggplot2
-    + RMarkdown
+        + Histogramas
+```{r}
+library(dplyr)
+str(cars)
+
+brazilian.cars <- cars %>%
+  mutate(speed = speed*1.60934,
+         dist = dist*0.3048)
+str(brazilian.cars)
+
+hist(brazilian.cars$speed)
+
+```
+        + Boxplots
+```{r}
+boxplot(brazilian.cars$speed)
+```
+        + Scatterplots
+```{r}
+plot(brazilian.cars$speed,brazilian.cars$dist)
+```
+    + ggplot2 (grammar of graphics)
+        + Alto nível de abstração
+        + Flexível
+        + Building Blocks
+            + dado
+            + mapeamento estético
+            + objeto geométrico
+            + transformações estatísticas
+            + escalas
+            + sistema de coordenadas
+            + ajustes de posição
+            + faceting
+```{r}
+library(ggplot2)
+#Histograma
+ggplot(brazilian.cars,aes(x=speed)) +
+         geom_histogram(bins=10)
+
+#Boxplot
+ggplot(brazilian.cars,aes(x=speed,y=dist,group=speed)) +
+         geom_boxplot()
+
+#Scatterplot
+ggplot(brazilian.cars,aes(x=speed,y=dist)) +
+         geom_point()
+
+#Lineplot
+ggplot(brazilian.cars,aes(x=speed,y=dist)) +
+         geom_line()
+
+#Algo mais completo
+str(airquality)
+brazilian.airquality <- airquality %>%
+  mutate(Wind = Wind*1.60934,
+         Temp = (Temp-32)*(5/9))
+
+
+ggplot(brazilian.airquality,aes(x=Temp,y=Wind)) + 
+  geom_point(aes(color=factor(Month))) + 
+  geom_smooth() +
+  facet_grid(. ~ Month) +
+  ggtitle("Temperatura vs. Velocidade do Vento por Mês") +
+  xlab("Temperatura") +
+  ylab("Vel. do Vento")
+  
+
+```
+
+      
+  + RMarkdown
+      + Contar uma história com os dados
+      + Transformar análises em documentos de qualidade, relatórios, etc.
+      + Pode gerar output em vários formatos: HTML, PDF, Word, etc.
+      + R Notebooks -> gerar output logo abaixo do código no meio do documento (tipo esse que você está lendo...)
+      + Vai ser usado na disciplina para a entrega das atividades que contenham código.
     
 8. Links
     + Cheat Sheets
@@ -197,6 +273,7 @@ distinct(flights, origin, dest)
         + [R Programming - Coursera](https://www.coursera.org/learn/r-programming)
         + [Outras alternativas online](http://www.skilledup.com/articles/5-free-courses-learning-r-programming)
       
+
 
 
 

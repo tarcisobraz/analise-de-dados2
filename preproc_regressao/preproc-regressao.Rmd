@@ -1,0 +1,87 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+
+library(readr)
+library(dplyr)
+graduados <- read_csv("graduados.csv", col_types = cols(matricula = col_character())) %>%
+  mutate(matricula = as.factor(matricula))
+head(graduados)
+
+```
+
+Vamos adicionar o CRA ao data frame dos alunos graduados.
+Mas antes, vamos dar uma olhada nos dados para ver como estão:
+  
+```{r}
+
+str(graduados)
+summary(graduados)
+View(graduados)
+graduados <- graduados %>%
+  arrange(matricula)
+
+```
+
+Como vemos, há diversas médias faltantes (NAs). Além disso, alguns alunos pagaram a mesma disciplina mais de uma vez (reprovações). 
+
+Como lidar com isso?
+
+.
+.
+.
+.
+.
+
+```{r}
+
+graduados.clean <- graduados %>%
+  filter(!is.na(media))
+
+summary(graduados.clean)
+View(graduados.clean)
+
+```
+
+Agora, vamos calcular o CRA dos alunos:
+
+```{r}
+
+graduados.cra <- graduados.clean %>%
+  group_by(matricula) %>%
+  mutate(cra.contrib = media*creditos) %>%
+  summarise(cra = sum(cra.contrib)/sum(creditos))
+
+head(graduados.cra)
+
+```
+
+Agora, como ajustar os dados para calcular o modelo?
+Qual seria o formato ideal?
+
+.
+.
+.
+.
+.
+
+```{r}
+
+library(reshape2)
+
+graduados.model.input <- graduados.clean %>%
+  group_by(matricula,disciplina)  %>%
+  filter(media == max(media)) %>%
+  ungroup() %>%
+  select(matricula,disciplina,media) %>% 
+  mutate(disciplina = as.factor(gsub(" ",".",disciplina))) %>%
+  dcast(matricula ~ disciplina, mean) %>%
+  merge(graduados.cra)
+
+head(graduados.model.input)
+View(graduados.model.input)
+
+```

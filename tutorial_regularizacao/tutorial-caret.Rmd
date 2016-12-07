@@ -1,0 +1,63 @@
+---
+title: "Tutorial caret"
+output: html_notebook
+---
+
+Vamos hoje aprender a usar o pacote [caret](caret.r-forge.r-project.org/).
+
+
+* ###A Biblioteca
+    * Caret significa: Classification and REgression Traning.
+    * Por que usar caret?
+        * Ferramentas/pacotes de machine learning em R possuem interfaces diferentes
+          * Sintaxes diferentes
+          * Tipos de dados diferentes
+          * Difícil juntar funcionalidades de pacotes diferentes
+          * Difícil tunar diferentes tipos de modelos
+        * Caret simplifica tudo numa interface única
+          * Provê ferramentas para cada parte do processo de construção do modelo
+          * É possível tratar vários modelos diferentes com uma única interface
+          * Cross-validation e parameter tunning estão incluídos
+      * Preparação dos dados
+      * Particionamento dos dados
+      * Avaliação do Modelo
+      * Seleção de variáveis
+
+
+Um exemplo simples:
+
+Vamos treinar uma Regressão linear para descrever a relação entre as variáveis: mph (milhas por galão) e wt (peso) dos carros do dataset mtcars.
+
+```{r}
+library(ggplot2)
+
+
+ggplot(data = mtcars, aes(x = wt, y = mpg)) +
+  geom_point()
+```
+
+Podemos ver no gráfico acima que parece haver uma correlação negativa entre as duas variáveis. Para treinar o modelo, basta fazer:
+
+```{r}
+library(caret)
+
+set.seed(107)
+
+in.train <- createDataPartition(y = mtcars$mpg,
+                                p = 0.75)
+
+mtcars.train <- mtcars[in.train[[1]],]
+mtcars.test <- mtcars[-in.train[[1]],]
+
+
+model.mtcars_lm <- train(mpg ~ wt
+                        ,mtcars.train
+                        ,method = "lm"
+                        )
+
+mtcars.pred <- predict(model.mtcars_lm, mtcars.test)
+sqrt(mean(mtcars.pred-mtcars.test$mpg)^2)
+
+```
+
+

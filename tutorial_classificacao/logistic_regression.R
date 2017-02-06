@@ -68,3 +68,23 @@ auc
 
 #https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/
 #https://www.kaggle.com/c/titanic/data
+
+#Caret
+library(caret)
+data(GermanCredit)
+Train <- createDataPartition(GermanCredit$Class, p=0.6, list=FALSE)
+training <- GermanCredit[ Train, ]
+testing <- GermanCredit[ -Train, ]
+
+caret_model <- train(Class ~ Age + ForeignWorker + Property.RealEstate + Housing.Own + 
+                   CreditHistory.Critical,  data=training, method="glm", family="binomial")
+
+predict(mod_fit, newdata=testing, type="prob")
+
+caret.results <- predict(caret_model,newdata=testing)
+caret.results <- ifelse(caret.results > 0.5,1,0)
+
+confusionMatrix(data=caret.results, reference=testing$Class)
+
+accuracy <- table(caret.results, testing[,"Class"])
+sum(diag(accuracy))/sum(accuracy)

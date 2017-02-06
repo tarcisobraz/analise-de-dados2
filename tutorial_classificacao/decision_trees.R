@@ -105,3 +105,13 @@ CrossTable(credit_test$default, credit_cost_pred,
 
 #http://www.patricklamle.com/Tutorials/Decision%20tree%20R/Decision%20trees%20in%20R%20using%20C50.html
 #https://www.packtpub.com/books/content/support/13251
+
+#Caret
+library(caret)
+credit_caret <- train(default ~ ., data=credit_train, method="C5.0")
+
+credit_caret_pred <- predict(credit_caret, credit_test)
+
+CrossTable(credit_test$default, credit_caret_pred,
+           prop.chisq = FALSE, prop.c = FALSE, prop.r = FALSE,
+           dnn = c('actual default', 'predicted default'))

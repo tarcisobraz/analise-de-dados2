@@ -1,0 +1,17 @@
+Exemplo retirado de:
+
+Dados:
+https://inclass.kaggle.com/c/predict-movie-ratings/data
+
+Relação com o lab atual:
+Nos dados do movielens, ele relaciona usuário, filme e avaliação.
+estes atributos estão para aluno, disciplina e nota.
+
+Para rodar esse exemplo:
+Em muitas máquinas pode dar problema com a memória, vocês podem simplesmente pegar um conjunto menor de filmes para a execução.
+
+No exemplo tem dois methods diferentes para Filtragem colaborativa de usuário, Cosine e Jacard. Ambos são métodos para calcular similaridade e podem ser melhor explicados aqui:
+https://en.wikipedia.org/wiki/Jaccard_index
+https://en.wikipedia.org/wiki/Cosine_similarity
+
+
